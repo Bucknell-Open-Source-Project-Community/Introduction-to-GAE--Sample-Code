@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>/ascii/</title>
+	<link rel="stylesheet" href="/public/css/main.css">
+</head>
+
+<body>
+	<h1>/ascii/</h1>
+	<form action="/" method="post">
+		
+		<label for="title">
+			<div>title</div>
+		</label>
+		<input type="text" name="title">
+
+		<label for="art">
+			<div>art</div>
+		</label>
+		<textarea name="art" cols="50" rows="20"></textarea>
+
+		<div class="error">{{ error }}</div>
+
+		<input type="submit" value="Upload Art">
+
+	</form>
+
+	<hr>
+
+	<h2>User Submitted Art</h2>
+
+	<form action="/search" method="get" class="search-form">
+		<input type="text" name="q" placeholder="Search for artwork by title">
+		<input type="submit" value="Search">
+	</form>
+
+	{% for post in arts %}
+	<div class="art">
+		<div class="art-title">{{ post.title }}</div>
+		<pre class="art-body">{{ post.art }}</pre>
+	</div>
+	{% endfor %}
+</body>
+
+</html>

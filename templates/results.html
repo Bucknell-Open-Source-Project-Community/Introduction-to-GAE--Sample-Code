@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>/ascii/</title>
+	<link rel="stylesheet" href="/public/css/main.css">
+</head>
+
+<body>
+
+	<h1>Search Results</h1>
+
+	{% if arts %}
+		{% for post in arts %}
+		<div class="art">
+			<div class="art-title">{{ post.title }}</div>
+			<pre class="art-body">{{ post.art }}</pre>
+		</div>
+		{% endfor %}
+	{% else %}
+		<p>No results found.</p>
+	{% endif %}
+
+</body>
+
+</html>
